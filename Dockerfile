@@ -39,6 +39,8 @@ ADD LICENSE /app/LICENSE
 ADD npm-shrinkwrap.json /app/npm-shrinkwrap.json
 ADD package.json /app/package.json
 
+RUN ["npm", "install"]
+
 WORKDIR /app
 
 RUN apk del build-dependencies && \
