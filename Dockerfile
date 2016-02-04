@@ -1,7 +1,8 @@
-FROM mhart/alpine-node
+# FROM mhart/alpine-node
+FROM node:5.5-slim
 
-RUN apk add --update --virtual build-dependencies \
-    git make gcc g++ python
+# RUN apk add --update --virtual build-dependencies \
+#    git make gcc g++ python
 
 volume ["/app/config"]
 
@@ -43,7 +44,7 @@ WORKDIR /app
 
 RUN ["npm", "install"]
 
-RUN apk del build-dependencies && \
-    rm -rf /tmp/* /var/cache/apk/* /root/.npm /root/.node-gyp
+# RUN apk del build-dependencies && \
+#    rm -rf /tmp/* /var/cache/apk/* /root/.npm /root/.node-gyp
 
 CMD ["npm", "start"]
