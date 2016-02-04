@@ -27,6 +27,8 @@ ENV PORT=1111
 ENV WORKER_HOST=127.0.0.1
 ENV WORKER_PORT=1113
 
+EXPOSE 1111
+
 ADD bin /app/bin
 ADD config /app/config
 ADD lib /app/lib
