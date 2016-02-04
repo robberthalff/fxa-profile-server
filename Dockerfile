@@ -4,6 +4,11 @@ FROM node:5.5-slim
 # RUN apk add --update --virtual build-dependencies \
 #    git make gcc g++ python
 
+ENV DEBIAN_FRONTEND noninteractive
+
+RUN apt-get update
+RUN apt-get install -y graphicsmagick
+
 volume ["/app/config"]
 
 # URL of fxa-auth-server
@@ -46,5 +51,10 @@ RUN ["npm", "install"]
 
 # RUN apk del build-dependencies && \
 #    rm -rf /tmp/* /var/cache/apk/* /root/.npm /root/.node-gyp
+
+RUN scripts/check_gm.sh
+
+# write config/version.json
+RUN scripts/rpm-version.js > config/version.json
 
 CMD ["npm", "start"]
