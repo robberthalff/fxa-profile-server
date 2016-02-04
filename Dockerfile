@@ -7,7 +7,7 @@ volume ["/app/config"]
 
 # URL of fxa-auth-server
 ENV AUTH_SERVER_URL=http://127.0.0.1:9000/v1
-ENV DB=memory
+ENV DB=mysql
 ENV NODE_ENV=prod
 ENV IMG=local
 
