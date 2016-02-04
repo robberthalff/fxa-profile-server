@@ -39,9 +39,9 @@ ADD LICENSE /app/LICENSE
 ADD npm-shrinkwrap.json /app/npm-shrinkwrap.json
 ADD package.json /app/package.json
 
-RUN ["npm", "install"]
-
 WORKDIR /app
+
+RUN ["npm", "install"]
 
 RUN apk del build-dependencies && \
     rm -rf /tmp/* /var/cache/apk/* /root/.npm /root/.node-gyp
